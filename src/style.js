@@ -5,6 +5,7 @@ export const Container = styled.div`
   font-family: sans-serif;
 `;
 
+
 export const ModalContainer = styled.div`
   flex-direction: column;
   align-items: center;
@@ -24,4 +25,13 @@ export const Arrow = styled.img`
 export const Close = styled.img`
   width: 25px;
   height: 25px;
+`;
+
+export const Range = styled.input`
+  width: 100%;
+`;
+
+export const TextArea = styled.input`
+  width: 100%;
+  height: 100px;
 `;

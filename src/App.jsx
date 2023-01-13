@@ -3,6 +3,8 @@ import { useState } from "react";
 import arrow from "../src/assets/arrow.svg";
 import close from "../src/assets/close.svg";
 import * as S from "../src/style";
+import Axios from "axios";
+import { useEffect } from "react";
 
 function App() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -26,6 +28,14 @@ function App() {
     },
   };
 
+  const [question, setQuestion] = useState("");
+
+  useEffect(() => {
+    Axios.get("http://localhost:8080/question/1").then((response) => {
+      setQuestion(response.data);
+    });
+  }, []);
+
   return (
     <S.Container>
       <button className="modal-button" onClick={handleOpenModal}>
@@ -44,12 +54,8 @@ function App() {
           <h1>Avaliação de satisfação</h1>
 
           <div className="content">
-            <p>
-              Em uma escala de 0 a 10, quanto você recomendaria a FireDev para
-              um amigo ou familiar?
-            </p>
-
-            <input type="range" list="tickmarks" />
+            <p>{question.enquiry}</p>
+            <S.Range type="range" list="tickmarks" />
             <datalist id="tickmarks">
               <option value="0" />
               <option value="1" />
@@ -63,11 +69,11 @@ function App() {
               <option value="9" />
               <option value="10" />
             </datalist>
-            <input
-              class="form-control"
+            <S.TextArea
+              className="textArea"
               type="text"
               placeholder="Input só de leitura, aqui..."
-            ></input>
+            ></S.TextArea>
           </div>
           <div className="BottomButton">
             <button>Próxima</button>
