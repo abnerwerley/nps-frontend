@@ -1,13 +1,13 @@
 import Modal from "react-modal";
 import { useState } from "react";
-import arrow from "../../src/assets/arrow.svg";
-import close from "../../src/assets/close.svg";
+import close from "../../assets/close.svg";
 import * as S from "./style";
 import Axios from "axios";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function FirstQuestion() {
-  const [modalIsOpen, setIsOpen] = useState(false);
+function ThirdQuestion() {
+  const [modalIsOpen, setIsOpen] = useState(true);
 
   function handleOpenModal() {
     setIsOpen(true);
@@ -31,7 +31,7 @@ function FirstQuestion() {
   const [question, setQuestion] = useState("");
 
   useEffect(() => {
-    Axios.get("http://localhost:8080/question/1").then((response) => {
+    Axios.get("http://localhost:8080/question/3").then((response) => {
       setQuestion(response.data);
     });
   }, []);
@@ -48,15 +48,14 @@ function FirstQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
-            <S.Arrow src={arrow} onClick={handleCloseModal} />
             <S.Close src={close} onClick={handleCloseModal} />
           </S.TopButtons>
           <h1>Avaliação de satisfação</h1>
 
-          <div className="content">
+          <S.Content>
             <p>{question.enquiry}</p>
             <S.Range name="score" type="range" />
-            <datalist id="tickmarks">
+            <S.DataList>
               <option value="0" />
               <option value="1" />
               <option value="2" />
@@ -68,21 +67,26 @@ function FirstQuestion() {
               <option value="8" />
               <option value="9" />
               <option value="10" />
-            </datalist>
+            </S.DataList>
             <S.TextArea
               name="response"
               className="textArea"
               type="text"
               placeholder="Input só de leitura, aqui..."
             ></S.TextArea>
-          </div>
-          <div className="BottomButton">
-            <button>Próxima</button>
-          </div>
+          </S.Content>
+          <S.BottomButtons>
+            <button>
+              <Link to={"/secondQuestion"}>Voltar</Link>
+            </button>
+            <button>
+              <Link to={"/finished"}>Próxima</Link>
+            </button>
+          </S.BottomButtons>
         </S.ModalContainer>
       </Modal>
     </S.Container>
   );
 }
 
-export default FirstQuestion;
+export default ThirdQuestion;
