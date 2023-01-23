@@ -1,6 +1,7 @@
 import Modal from "react-modal";
 import { useState } from "react";
 import close from "../../assets/close.svg";
+import arrow from "../../assets/arrow.svg";
 import * as S from "./style";
 import Axios from "axios";
 import { useEffect } from "react";
@@ -70,6 +71,7 @@ function FirstQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
+            <S.Arrow src={arrow} onClick={handleCloseModal} />
             <S.Close src={close} onClick={handleCloseModal} />
           </S.TopButtons>
           <h1>Avaliação de satisfação</h1>
@@ -99,9 +101,9 @@ function FirstQuestion() {
             ></S.TextArea>
           </S.Content>
           <S.BottomButtons>
-            <button onSubmit={handleSubmit(saveResponse)}>
+            <S.NextButton onSubmit={handleSubmit(saveResponse)}>
               <Link to={"/secondQuestion"}>Próxima</Link>
-            </button>
+            </S.NextButton>
           </S.BottomButtons>
         </S.ModalContainer>
       </Modal>

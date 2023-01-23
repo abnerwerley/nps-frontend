@@ -8,14 +8,25 @@ export const Container = styled.div`
 export const ModalContainer = styled.div`
   flex-direction: column;
   align-items: center;
-  width: 336px;
-  height: 464px;
+  width: 472.5px;
+  height: 652.5px;
+  margin: 1em;
+
+  @media (min-width: 300px) and (max-width: 699px) {
+    width: 336px;
+    height: 464px;
+  }
+
+  @media (max-width: 299px) {
+    width: 336px;
+    height: 464px;
+  }
 `;
 
 export const TopButtons = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 export const Close = styled.img`

@@ -1,6 +1,7 @@
 import Modal from "react-modal";
 import { useState } from "react";
 import close from "../../assets/close.svg";
+import arrow from "../../assets/arrow.svg";
 import * as S from "./style";
 import Axios from "axios";
 import { useEffect } from "react";
@@ -48,6 +49,9 @@ function SecondQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
+            <Link to={"/firstQuestion"}>
+              <S.Arrow src={arrow} />
+            </Link>
             <S.Close src={close} onClick={handleCloseModal} />
           </S.TopButtons>
           <h1>Avaliação de satisfação</h1>
@@ -76,12 +80,12 @@ function SecondQuestion() {
             ></S.TextArea>
           </S.Content>
           <S.BottomButtons>
-            <button>
+            <S.BackButton>
               <Link to={"/firstQuestion"}>Voltar</Link>{" "}
-            </button>
-            <button>
+            </S.BackButton>
+            <S.NextButton>
               <Link to={"/thirdQuestion"}>Próxima</Link>
-            </button>
+            </S.NextButton>
           </S.BottomButtons>
         </S.ModalContainer>
       </Modal>
