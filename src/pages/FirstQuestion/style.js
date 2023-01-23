@@ -21,8 +21,7 @@ export const TopButtons = styled.div`
 
 export const Content = styled.div``;
 
-export const DataList = styled.datalist`
-`;
+export const DataList = styled.datalist``;
 
 export const BottomButtons = styled.div`
   display: flex;
