@@ -164,6 +164,7 @@ export const NextButton = styled.button`
 
   width: 157.5px;
   height: 54px;
+  border: none;
 
   @media (min-width: 300px) and (max-width: 699px) {
     width: 112px;

@@ -22,6 +22,22 @@ export const ModalContainer = styled.div`
     height: 370px;
   }
 `;
+export const ImageDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const CheckImage = styled.img`
+  width: 75px;
+  height: 75px;
+
+  @media (min-width: 300px) and (max-width: 699px) {
+    width: 55px;
+    height: 55px;
+  }
+`;
 
 export const TopButtons = styled.div`
   display: flex;
@@ -122,6 +138,7 @@ export const ConcludeButton = styled.button`
   color: white;
   background: linear-gradient(90deg, #fb6422 0%, #ff046d 100%);
   border-radius: 2.25px;
+  border: none;
 
   @media (min-width: 300px) and (max-width: 699px) {
     padding: 12px 16px;
