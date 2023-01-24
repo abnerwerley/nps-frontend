@@ -54,10 +54,13 @@ function ThirdQuestion() {
             </Link>
             <S.Close src={close} onClick={handleCloseModal} />
           </S.TopButtons>
-          <h1>Avaliação de satisfação</h1>
 
           <S.Content>
-            <p>{question.enquiry}</p>
+            <S.Texts>
+              <S.H1>Avaliação de satisfação</S.H1>
+              <S.Paragraph>{question.enquiry}</S.Paragraph>
+            </S.Texts>
+
             <S.Range name="score" type="range" />
             <S.DataList>
               <option value="0" />
@@ -76,15 +79,19 @@ function ThirdQuestion() {
               name="response"
               className="textArea"
               type="text"
-              placeholder="Input só de leitura, aqui..."
+              placeholder="Deixe sua opinião e melhorias (opcional)"
             ></S.TextArea>
           </S.Content>
           <S.BottomButtons>
             <S.BackButton>
-              <Link to={"/secondQuestion"}>Voltar</Link>
+              <S.LinkStyled to={"/secondQuestion"} style={{ color: "black" }}>
+                Voltar
+              </S.LinkStyled>
             </S.BackButton>
             <S.NextButton>
-              <Link to={"/finished"}>Próxima</Link>
+              <S.LinkStyled to={"/finished"} style={{ color: "white" }}>
+                Próxima
+              </S.LinkStyled>
             </S.NextButton>
           </S.BottomButtons>
         </S.ModalContainer>
