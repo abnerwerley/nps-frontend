@@ -51,7 +51,11 @@ export const Close = styled.img`
   height: 25px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Texts = styled.div`
   display: flex;
@@ -167,7 +171,8 @@ export const BottomButtons = styled.div`
   padding-top: 56.25px;
 
   @media (min-width: 300px) and (max-width: 699px) {
-    justify-content: space-between;
+    width: 90%;
+    justify-content: space-around;
     padding-top: 44px;
   }
 `;

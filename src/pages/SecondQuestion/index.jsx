@@ -83,19 +83,19 @@ function SecondQuestion() {
                 placeholder="Deixe sua opinião e melhorias (opcional)"
               ></S.TextArea>
             </S.DivFields>
+            <S.BottomButtons>
+              <S.BackButton>
+                <S.LinkStyled to={"/firstQuestion"} style={{ color: "black" }}>
+                  Voltar
+                </S.LinkStyled>
+              </S.BackButton>
+              <S.NextButton>
+                <S.LinkStyled to={"/thirdQuestion"} style={{ color: "white" }}>
+                  Próxima
+                </S.LinkStyled>
+              </S.NextButton>
+            </S.BottomButtons>
           </S.Content>
-          <S.BottomButtons>
-            <S.BackButton>
-              <S.LinkStyled to={"/firstQuestion"} style={{ color: "black" }}>
-                Voltar
-              </S.LinkStyled>
-            </S.BackButton>
-            <S.NextButton>
-              <S.LinkStyled to={"/thirdQuestion"} style={{ color: "white" }}>
-                Próxima
-              </S.LinkStyled>
-            </S.NextButton>
-          </S.BottomButtons>
         </S.ModalContainer>
       </Modal>
     </S.Container>
