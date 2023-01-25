@@ -61,26 +61,28 @@ function SecondQuestion() {
               <S.Paragraph>{question.enquiry}</S.Paragraph>
             </S.Texts>
 
-            <S.Range name="score" type="range" />
-            <S.DataList>
-              <option value="0" />
-              <option value="1" />
-              <option value="2" />
-              <option value="3" />
-              <option value="4" />
-              <option value="5" />
-              <option value="6" />
-              <option value="7" />
-              <option value="8" />
-              <option value="9" />
-              <option value="10" />
-            </S.DataList>
-            <S.TextArea
-              name="response"
-              className="textArea"
-              type="text"
-              placeholder="Deixe sua opinião e melhorias (opcional)"
-            ></S.TextArea>
+            <S.DivFields>
+              <S.Range name="score" type="range" />
+              <S.DataList>
+                <option value="0" />
+                <option value="1" />
+                <option value="2" />
+                <option value="3" />
+                <option value="4" />
+                <option value="5" />
+                <option value="6" />
+                <option value="7" />
+                <option value="8" />
+                <option value="9" />
+                <option value="10" />
+              </S.DataList>
+              <S.TextArea
+                name="response"
+                className="textArea"
+                type="text"
+                placeholder="Deixe sua opinião e melhorias (opcional)"
+              ></S.TextArea>
+            </S.DivFields>
           </S.Content>
           <S.BottomButtons>
             <S.BackButton>
