@@ -3,6 +3,8 @@ import { useState } from "react";
 import close from "../../assets/close.svg";
 import arrow from "../../assets/arrow.svg";
 import * as S from "./style";
+import { TextArea } from "../../components/TextArea/index.jsx";
+import { Button } from "../../components/Button/index.jsx";
 import Axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -60,9 +62,7 @@ function FirstQuestion() {
 
   return (
     <S.Container>
-      <button className="modal-button" onClick={handleOpenModal}>
-        Responder Nps
-      </button>
+      <Button onClick={handleOpenModal}>Responder Nps</Button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
@@ -95,20 +95,14 @@ function FirstQuestion() {
                 <option value="9" />
                 <option value="10" />
               </S.DataList>
-              <S.TextArea
-                name="response"
-                className="textArea"
-                type="text"
-                placeholder="Deixe sua opinião e melhorias (opcional)"
-                {...register("response")}
-              ></S.TextArea>
+              <TextArea></TextArea>
             </S.DivFields>
             <S.BottomButtons>
-              <S.NextButton onSubmit={handleSubmit(saveResponse)}>
+              <Button className={"nextButton"}>
                 <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>
-              </S.NextButton>
+              </Button>
             </S.BottomButtons>
           </S.Content>
         </S.ModalContainer>

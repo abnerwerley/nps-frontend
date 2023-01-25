@@ -23,6 +23,12 @@ export const ModalContainer = styled.div`
   }
 `;
 
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const TopButtons = styled.div`
   display: flex;
   flex-direction: row;
@@ -37,8 +43,6 @@ export const TopButtons = styled.div`
   }
 `;
 
-export const DataList = styled.datalist``;
-
 export const Arrow = styled.img`
   width: 30px;
   height: 30px;
@@ -47,16 +51,9 @@ export const Arrow = styled.img`
     display: none;
   }
 `;
-
 export const Close = styled.img`
   width: 25px;
   height: 25px;
-`;
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const Texts = styled.div`
@@ -99,24 +96,33 @@ export const H1 = styled.h1`
 `;
 
 export const Paragraph = styled.p`
+  padding: 20px;
   margin: 0;
-  padding-top: 30px;
 
-  width: 363.38px;
-  height: 81px;
+  width: 361.12px;
+  height: 88.9px;
 
+  font-family: "Poppins";
+  font-style: normal;
   font-weight: 300;
   font-size: 18px;
   line-height: 30px;
 
+  text-align: center;
+  letter-spacing: -0.02em;
+
   color: #333333;
 
-  @media (min-width: 300px) and (max-width: 699px) {
+  @media (min-width: 299px) and (max-width: 699px) {
+    padding: 22px;
+
     width: 237px;
     height: 57px;
 
     font-size: 12px;
     line-height: 22px;
+
+    opacity: 0.78;
   }
 `;
 
@@ -143,25 +149,7 @@ export const Range = styled.input`
   }
 `;
 
-export const TextArea = styled.input`
-  padding-top: 62px;
-
-  width: 365px;
-  height: 110px;
-
-  background: #e5e5e5;
-  border-radius: 5px;
-
-  @media (min-width: 300px) and (max-width: 699px) {
-    padding-top: 25px;
-
-    width: 260px;
-    height: 78px;
-
-    background: #e5e5e5;
-    border-radius: 5px;
-  }
-`;
+export const DataList = styled.datalist``;
 
 export const BottomButtons = styled.div`
   display: flex;
@@ -169,24 +157,15 @@ export const BottomButtons = styled.div`
   justify-content: center;
 
   padding-top: 56.25px;
+
+  .nextButton {
+    background: linear-gradient(90deg, #fb6422 0%, #ff046d 100%);
+    border: none;
+  }
   @media (min-width: 300px) and (max-width: 699px) {
     width: 80%;
     justify-content: flex-end;
     padding-top: 44px;
-  }
-`;
-
-export const NextButton = styled.button`
-  background: linear-gradient(90deg, #fb6422 0%, #ff046d 100%);
-  border-radius: 2px;
-
-  width: 157.5px;
-  height: 54px;
-  border: none;
-
-  @media (min-width: 300px) and (max-width: 699px) {
-    width: 112px;
-    height: 38.4px;
   }
 `;
 
