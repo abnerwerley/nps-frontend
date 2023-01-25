@@ -51,7 +51,11 @@ export const Close = styled.img`
   height: 25px;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Texts = styled.div`
   display: flex;
@@ -116,9 +120,16 @@ export const Paragraph = styled.p`
 
 export const DataList = styled.datalist``;
 
+export const DivFields = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 export const Range = styled.input`
   padding-top: 40px;
-  width: 100%;
+  width: 352px;
   height: 9px;
 
   background: #e5e5e5;
@@ -127,6 +138,7 @@ export const Range = styled.input`
   @media (min-width: 300px) and (max-width: 699px) {
     padding-top: 25px;
 
+    width: 260px;
     height: 28px;
   }
 `;
@@ -134,7 +146,7 @@ export const Range = styled.input`
 export const TextArea = styled.input`
   padding-top: 62px;
 
-  width: 100%;
+  width: 365px;
   height: 110px;
 
   background: #e5e5e5;
@@ -142,7 +154,12 @@ export const TextArea = styled.input`
 
   @media (min-width: 300px) and (max-width: 699px) {
     padding-top: 25px;
+
+    width: 260px;
     height: 78px;
+
+    background: #e5e5e5;
+    border-radius: 5px;
   }
 `;
 
@@ -154,7 +171,8 @@ export const BottomButtons = styled.div`
   padding-top: 56.25px;
 
   @media (min-width: 300px) and (max-width: 699px) {
-    justify-content: space-between;
+    width: 90%;
+    justify-content: space-around;
     padding-top: 44px;
   }
 `;

@@ -5,7 +5,6 @@ import arrow from "../../assets/arrow.svg";
 import * as S from "./style";
 import Axios from "axios";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -81,35 +80,37 @@ function FirstQuestion() {
               <S.Paragraph>{question.enquiry}</S.Paragraph>
             </S.Texts>
 
-            <S.Range name="score" type="range" {...register("score")} />
-            <S.DataList>
-              <option value="0" />
-              <option value="1" />
-              <option value="2" />
-              <option value="3" />
-              <option value="4" />
-              <option value="5" />
-              <option value="6" />
-              <option value="7" />
-              <option value="8" />
-              <option value="9" />
-              <option value="10" />
-            </S.DataList>
-            <S.TextArea
-              name="response"
-              className="textArea"
-              type="text"
-              placeholder="Deixe sua opinião e melhorias (opcional)"
-              {...register("response")}
-            ></S.TextArea>
+            <S.DivFields>
+              <S.Range name="score" type="range" {...register("score")} />
+              <S.DataList>
+                <option value="0" />
+                <option value="1" />
+                <option value="2" />
+                <option value="3" />
+                <option value="4" />
+                <option value="5" />
+                <option value="6" />
+                <option value="7" />
+                <option value="8" />
+                <option value="9" />
+                <option value="10" />
+              </S.DataList>
+              <S.TextArea
+                name="response"
+                className="textArea"
+                type="text"
+                placeholder="Deixe sua opinião e melhorias (opcional)"
+                {...register("response")}
+              ></S.TextArea>
+            </S.DivFields>
+            <S.BottomButtons>
+              <S.NextButton onSubmit={handleSubmit(saveResponse)}>
+                <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
+                  Próxima
+                </S.LinkStyled>
+              </S.NextButton>
+            </S.BottomButtons>
           </S.Content>
-          <S.BottomButtons>
-            <S.NextButton onSubmit={handleSubmit(saveResponse)}>
-              <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
-                Próxima
-              </S.LinkStyled>
-            </S.NextButton>
-          </S.BottomButtons>
         </S.ModalContainer>
       </Modal>
     </S.Container>
