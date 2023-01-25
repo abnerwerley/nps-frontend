@@ -22,6 +22,17 @@ export const ModalContainer = styled.div`
     height: 370px;
   }
 `;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Close = styled.img`
+  width: 25px;
+  height: 25px;
+`;
+
 export const ImageDiv = styled.div`
   display: flex;
   align-items: center;
@@ -43,12 +54,6 @@ export const TopButtons = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-`;
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const H1 = styled.h1`
@@ -114,11 +119,6 @@ export const Paragraph = styled.p`
   }
 `;
 
-export const Close = styled.img`
-  width: 27px;
-  height: 29.63px;
-`;
-
 export const BottomButton = styled.div`
   display: flex;
   align-items: center;
@@ -126,27 +126,14 @@ export const BottomButton = styled.div`
 
   padding: 50px;
 
+  .concludeButton {
+    color: white;
+    background: linear-gradient(90deg, #fb6422 0%, #ff046d 100%);
+    border: none;
+  }
+
   @media (min-width: 299px) {
     padding: 42px;
-  }
-`;
-
-export const ConcludeButton = styled.button`
-  width: 157.5px;
-  height: 59.27px;
-
-  color: white;
-  background: linear-gradient(90deg, #fb6422 0%, #ff046d 100%);
-  border-radius: 2.25px;
-  border: none;
-
-  @media (min-width: 300px) and (max-width: 699px) {
-    padding: 12px 16px;
-    gap: 16px;
-
-    width: 112px;
-    height: 38.4px;
-
     border-radius: 2px;
   }
 `;

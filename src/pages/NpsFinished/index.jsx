@@ -2,6 +2,7 @@ import Modal from "react-modal";
 import { useState } from "react";
 import close from "../../assets/close.svg";
 import * as S from "./style";
+import { Button } from "../../components/Button/index.jsx";
 import check from "./assets/check.svg";
 
 function NpsFinished() {
@@ -33,8 +34,9 @@ function NpsFinished() {
           <S.TopButtons>
             <S.Close src={close} onClick={handleCloseModal} />
           </S.TopButtons>
-          <S.ImageDiv><S.CheckImage src={check} /></S.ImageDiv>
-          
+          <S.ImageDiv>
+            <S.CheckImage src={check} />
+          </S.ImageDiv>
           <S.Content>
             <S.H1>Sua avaliação foi enviada com sucesso!</S.H1>
             <S.Paragraph>
@@ -44,9 +46,9 @@ function NpsFinished() {
             </S.Paragraph>
           </S.Content>
           <S.BottomButton>
-            <S.ConcludeButton onClick={handleCloseModal}>
+            <Button className={"concludeButton"} onClick={handleCloseModal}>
               Concluir
-            </S.ConcludeButton>
+            </Button>
           </S.BottomButton>
         </S.ModalContainer>
       </Modal>
