@@ -8,6 +8,7 @@ const RoutesApp = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route element={<FirstQuestion />} path="/" />
         <Route element={<FirstQuestion />} path="firstQuestion" />
         <Route element={<SecondQuestion />} path="secondQuestion" />
         <Route element={<ThirdQuestion />} path="thirdQuestion" />
