@@ -1,3 +1,4 @@
+import React from "react";
 import { ButtonStyle } from "./style";
 
 export function Button({ children, onClick, className }) {
@@ -7,3 +8,5 @@ export function Button({ children, onClick, className }) {
     </ButtonStyle>
   );
 }
+
+export default Button;
