@@ -34,7 +34,7 @@ function FirstQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState("");
-  const [score, setScore] = useState("");
+  const [score, setScore] = useState(5);
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -57,9 +57,14 @@ function FirstQuestion() {
       response: response,
       score: score,
     };
-    axios.post("http://localhost:8080/answer", data).then((response) => {
-      console.log(response);
-    });
+    axios
+      .post("http://localhost:8080/answer", data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (

@@ -8,6 +8,7 @@ import { Button } from "../../components/Button/index.jsx";
 import Axios from "axios";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function ThirdQuestion() {
   const [modalIsOpen, setIsOpen] = useState(true);
@@ -32,15 +33,43 @@ function ThirdQuestion() {
   };
 
   const [question, setQuestion] = useState("");
+  const [questionId, setQuestionId] = useState("");
+  const [response, setResponse] = useState("");
+  const [score, setScore] = useState(5);
+
+  const handleResponseChange = (event) => {
+    setResponse(event.target.value);
+  };
+
+  const handleScoreChange = (event) => {
+    setScore(event.target.value);
+  };
 
   useEffect(() => {
     Axios.get("http://localhost:8080/question/3").then((response) => {
+      setQuestionId(response.data.questionId);
       setQuestion(response.data);
     });
   }, []);
 
+  const post = (event) => {
+    const data = {
+      questionId: questionId,
+      response: response,
+      score: score,
+    };
+    axios
+      .post("http://localhost:8080/answer", data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
-    <S.Container>
+    <S.Container key={questionId}>
       <Button onClick={handleOpenModal}>Responder Nps</Button>
       <Modal
         isOpen={modalIsOpen}
@@ -62,7 +91,7 @@ function ThirdQuestion() {
             </S.Texts>
 
             <S.DivFields>
-              <S.Range name="score" type="range" />
+              <S.Range name="score" type="range" onChange={handleScoreChange} />
               <S.DataList>
                 <option value="0" />
                 <option value="1" />
@@ -76,7 +105,10 @@ function ThirdQuestion() {
                 <option value="9" />
                 <option value="10" />
               </S.DataList>
-              <TextArea></TextArea>
+              <TextArea
+                name={"response"}
+                onChange={handleResponseChange}
+              ></TextArea>
             </S.DivFields>
             <S.BottomButtons>
               <Button className={"backButton"}>
@@ -84,7 +116,7 @@ function ThirdQuestion() {
                   Voltar
                 </S.LinkStyled>
               </Button>
-              <Button className={"nextButton"}>
+              <Button className={"nextButton"} onClick={post}>
                 <S.LinkStyled to={"/finished"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>
