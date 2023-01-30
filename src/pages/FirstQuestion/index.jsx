@@ -7,7 +7,6 @@ import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
 import Axios from "axios";
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function FirstQuestion() {
@@ -33,35 +32,38 @@ function FirstQuestion() {
   };
 
   const [question, setQuestion] = useState("");
+  const [questionId, setQuestionId] = useState("");
+  const [response, setResponse] = useState("");
+  const [score, setScore] = useState("");
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const handleResponseChange = (event) => {
+    setResponse(event.target.value);
+  };
 
-  const saveResponse = (values) =>
-    axios
-      .post("http://localhost:8080/answer", {
-        questionId: 1,
-        response: values.response,
-        score: values.score,
-      })
-      .then((response) => {
-        console.log("Sucess");
-      })
-      .catch((error) => {
-        console.log("Failed");
-      });
+  const handleScoreChange = (event) => {
+    setScore(event.target.value);
+  };
 
   useEffect(() => {
     Axios.get("http://localhost:8080/question/1").then((response) => {
+      setQuestionId(response.data.questionId);
       setQuestion(response.data);
     });
   }, []);
 
+  const post = (event) => {
+    const data = {
+      questionId: questionId,
+      response: response,
+      score: score,
+    };
+    axios.post("http://localhost:8080/answer", data).then((response) => {
+      console.log(response);
+    });
+  };
+
   return (
-    <S.Container>
+    <S.Container key={questionId}>
       <Button onClick={handleOpenModal}>Responder Nps</Button>
       <Modal
         isOpen={modalIsOpen}
@@ -81,7 +83,7 @@ function FirstQuestion() {
             </S.Texts>
 
             <S.DivFields>
-              <S.Range name="score" type="range" {...register("score")} />
+              <S.Range name="score" type="range" onChange={handleScoreChange} />
               <S.DataList>
                 <option value="0" />
                 <option value="1" />
@@ -95,10 +97,13 @@ function FirstQuestion() {
                 <option value="9" />
                 <option value="10" />
               </S.DataList>
-              <TextArea></TextArea>
+              <TextArea
+                name={"response"}
+                onChange={handleResponseChange}
+              ></TextArea>
             </S.DivFields>
             <S.BottomButtons>
-              <Button className={"nextButton"}>
+              <Button className={"nextButton"} onClick={post}>
                 <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>

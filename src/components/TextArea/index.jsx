@@ -1,11 +1,12 @@
 import React from "react";
 import { TextAreaStyle } from "./style";
 
-export function TextArea() {
+export function TextArea({ name, onChange }) {
   return (
     <>
       <TextAreaStyle
-        name="response"
+        name={name}
+        onChange={onChange}
         className="textArea"
         type="text"
         placeholder="Deixe sua opinião e melhorias (opcional)"
