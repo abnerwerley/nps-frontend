@@ -72,6 +72,7 @@ function SecondQuestion() {
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         style={customStyles}
+        testId="secondModal"
       >
         <S.ModalContainer>
           <S.TopButtons>
