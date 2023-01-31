@@ -1,13 +1,15 @@
 import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-// import close from "../../assets/close.svg";
+import Arrow from "../../assets/arrow.jsx";
+import Close from "../../assets/close.jsx";
 import * as S from "./style";
 import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
 import Axios from "axios";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function FirstQuestion() {
   const [modalIsOpen, setIsOpen] = useState(true);
@@ -34,7 +36,7 @@ function FirstQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState();
-  const [score, setScore] = useState();
+  const [score, setScore] = useState(5);
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -78,7 +80,10 @@ function FirstQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
-            {/* <S.Close src={close} onClick={handleCloseModal} /> */}
+            <Link to={"/"}>
+              <Arrow />
+            </Link>
+            <Close onClick={handleCloseModal} />
           </S.TopButtons>
 
           <S.Content>
