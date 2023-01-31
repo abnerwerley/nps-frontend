@@ -1,8 +1,8 @@
 import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-// import close from "../../assets/close.svg";
-// import arrow from "../../assets/arrow.svg";
+import Close from "../../assets/close.jsx";
+import Arrow from "../../assets/arrow.jsx";
 import * as S from "./style";
 import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
@@ -36,7 +36,7 @@ function SecondQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState("");
-  const [score, setScore] = useState();
+  const [score, setScore] = useState(5);
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -80,10 +80,10 @@ function SecondQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
-            {/* <Link to={"/firstQuestion"}>
-              <S.Arrow src={arrow} />
+            <Link to={"/firstQuestion"} className="arrowLink">
+              <Arrow />
             </Link>
-            <S.Close src={close} onClick={handleCloseModal} /> */}
+            <Close onClick={handleCloseModal} />
           </S.TopButtons>
 
           <S.Content>

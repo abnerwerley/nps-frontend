@@ -1,13 +1,15 @@
 import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-// import close from "../../assets/close.svg";
+import Arrow from "../../assets/arrow.jsx";
+import Close from "../../assets/close.jsx";
 import * as S from "./style";
 import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
 import Axios from "axios";
 import { useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function FirstQuestion() {
   const [modalIsOpen, setIsOpen] = useState(true);
@@ -34,7 +36,7 @@ function FirstQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState();
-  const [score, setScore] = useState();
+  const [score, setScore] = useState(5);
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -45,6 +47,8 @@ function FirstQuestion() {
   };
 
   useEffect(() => {
+    handleResponseChange;
+    handleScoreChange;
     Axios.get("http://localhost:8080/question/1").then((response) => {
       setQuestionId(response.data.questionId);
       setQuestion(response.data);
@@ -67,6 +71,8 @@ function FirstQuestion() {
       });
   };
 
+  const notDisabled = response !== undefined && response !== "";
+
   return (
     <S.Container key={questionId}>
       <Button onClick={handleOpenModal}>Responder Nps</Button>
@@ -78,7 +84,10 @@ function FirstQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
-            {/* <S.Close src={close} onClick={handleCloseModal} /> */}
+            <Link to={"/"} className="arrowLink">
+              <Arrow />
+            </Link>
+            <Close onClick={handleCloseModal} />
           </S.TopButtons>
 
           <S.Content>
@@ -122,14 +131,14 @@ function FirstQuestion() {
             <S.BottomButtons>
               <Button
                 className={"nextButton"}
-                onClick={
-                  response !== undefined && response !== "" ? post : undefined
-                }
-                disabled={
-                  response !== undefined && response !== "" ? false : true
-                }
+                onClick={notDisabled ? post : undefined}
+                disabled={notDisabled ? false : true}
               >
-                <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
+                <S.LinkStyled
+                  to={notDisabled ? "/secondQuestion" : "#"}
+                  style={{ color: "white" }}
+                  disabled={!notDisabled}
+                >
                   Próxima
                 </S.LinkStyled>
               </Button>

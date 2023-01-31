@@ -36,6 +36,9 @@ export const TopButtons = styled.div`
 
   @media (min-width: 300px) and (max-width: 699px) {
     justify-content: flex-end;
+    .arrowLink {
+      display: none;
+    }
   }
 
   @media (max-width: 299px) {

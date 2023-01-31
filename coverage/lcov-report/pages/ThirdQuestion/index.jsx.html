@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.82% </span>
+                <span class="strong">86.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>115/134</span>
+                <span class='fraction'>123/142</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.82% </span>
+                <span class="strong">86.61% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>115/134</span>
+                <span class='fraction'>123/142</span>
             </div>
         
             
@@ -197,7 +197,15 @@
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -266,6 +274,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -334,8 +350,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-// import close from "../../assets/close.svg";
-// import arrow from "../../assets/arrow.svg";
+import Close from "../../assets/close.jsx";
+import Arrow from "../../assets/arrow.jsx";
 import * as S from "./style";
 import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
@@ -413,10 +429,10 @@ function ThirdQuestion() {
       &gt;
         &lt;S.ModalContainer&gt;
           &lt;S.TopButtons&gt;
-            {/* &lt;Link to={"/secondQuestion"}&gt;
-              &lt;S.Arrow src={arrow} /&gt;
+            &lt;Link to={"/secondQuestion"}&gt;
+              &lt;Arrow /&gt;
             &lt;/Link&gt;
-            &lt;S.Close src={close} onClick={handleCloseModal} /&gt; */}
+            &lt;Close onClick={handleCloseModal} /&gt;
           &lt;/S.TopButtons&gt;
 &nbsp;
           &lt;S.Content&gt;
@@ -426,19 +442,27 @@ function ThirdQuestion() {
             &lt;/S.Texts&gt;
 &nbsp;
             &lt;S.DivFields testId="thirdDivFields"&gt;
-              &lt;S.Range name="score" type="range" onChange={handleScoreChange} /&gt;
-              &lt;S.DataList&gt;
-                &lt;option value="0" /&gt;
-                &lt;option value="1" /&gt;
-                &lt;option value="2" /&gt;
-                &lt;option value="3" /&gt;
-                &lt;option value="4" /&gt;
-                &lt;option value="5" /&gt;
-                &lt;option value="6" /&gt;
-                &lt;option value="7" /&gt;
-                &lt;option value="8" /&gt;
-                &lt;option value="9" /&gt;
-                &lt;option value="10" /&gt;
+              &lt;S.Range
+                min="0"
+                max="10"
+                name="score"
+                type="range"
+                onChange={handleScoreChange}
+                testId="range"
+                list="datalist"
+              /&gt;
+              &lt;S.DataList id="datalist"&gt;
+                &lt;option value="0"&gt;0&lt;/option&gt;
+                &lt;option value="1"&gt;1&lt;/option&gt;
+                &lt;option value="2"&gt;2&lt;/option&gt;
+                &lt;option value="3"&gt;3&lt;/option&gt;
+                &lt;option value="4"&gt;4&lt;/option&gt;
+                &lt;option value="5"&gt;5&lt;/option&gt;
+                &lt;option value="6"&gt;6&lt;/option&gt;
+                &lt;option value="7"&gt;7&lt;/option&gt;
+                &lt;option value="8"&gt;8&lt;/option&gt;
+                &lt;option value="9"&gt;9&lt;/option&gt;
+                &lt;option value="10"&gt;10&lt;/option&gt;
               &lt;/S.DataList&gt;
               &lt;TextArea
                 name={"response"}
@@ -472,7 +496,7 @@ export default ThirdQuestion;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-01-31T11:11:47.155Z
+                at 2023-01-31T14:36:13.859Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -36,6 +36,9 @@ export const TopButtons = styled.div`
 
   @media (min-width: 300px) and (max-width: 699px) {
     justify-content: flex-end;
+    .arrowLink {
+      display: none;
+    }
   }
 
   @media (max-width: 299px) {
@@ -46,15 +49,6 @@ export const TopButtons = styled.div`
 export const Close = styled.img`
   width: 25px;
   height: 25px;
-`;
-
-export const Arrow = styled.img`
-  width: 30px;
-  height: 30px;
-
-  @media (min-width: 300px) and (max-width: 699px) {
-    display: none;
-  }
 `;
 
 export const Texts = styled.div`
