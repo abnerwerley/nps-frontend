@@ -36,7 +36,7 @@ function ThirdQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState("");
-  const [score, setScore] = useState(5);
+  const [score, setScore] = useState();
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -118,7 +118,11 @@ function ThirdQuestion() {
                   Voltar
                 </S.LinkStyled>
               </Button>
-              <Button className={"nextButton"} onClick={post}>
+              <Button
+                className={"nextButton"}
+                onClick={score !== undefined ? post : undefined}
+                disabled={score !== undefined ? false : true}
+              >
                 <S.LinkStyled to={"/finished"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>
