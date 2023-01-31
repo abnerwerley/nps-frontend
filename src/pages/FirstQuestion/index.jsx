@@ -34,7 +34,7 @@ function FirstQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState("");
-  const [score, setScore] = useState(5);
+  const [score, setScore] = useState();
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -88,7 +88,12 @@ function FirstQuestion() {
             </S.Texts>
 
             <S.DivFields>
-              <S.Range name="score" type="range" onChange={handleScoreChange} testId="range" />
+              <S.Range
+                name="score"
+                type="range"
+                onChange={handleScoreChange}
+                testId="range"
+              />
               <S.DataList>
                 <option value="0" />
                 <option value="1" />
@@ -108,8 +113,15 @@ function FirstQuestion() {
               ></TextArea>
             </S.DivFields>
             <S.BottomButtons>
-              <Button className={"nextButton"} onClick={post}>
-                <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
+              <Button
+                className={"nextButton"}
+                onClick={score !== undefined ? post : undefined}
+                disabled={score !== undefined ? false : true}
+              >
+                <S.LinkStyled
+                  to={"/secondQuestion"}
+                  style={{ color: "white" }}
+                >
                   Próxima
                 </S.LinkStyled>
               </Button>

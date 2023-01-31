@@ -36,7 +36,7 @@ function SecondQuestion() {
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState("");
-  const [score, setScore] = useState(5);
+  const [score, setScore] = useState();
 
   const handleResponseChange = (event) => {
     setResponse(event.target.value);
@@ -59,11 +59,14 @@ function SecondQuestion() {
       response: response,
       score: score,
     };
-    axios.post("http://localhost:8080/answer", data).then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      console.log(error.message);
-    });
+    axios
+      .post("http://localhost:8080/answer", data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -90,7 +93,12 @@ function SecondQuestion() {
             </S.Texts>
 
             <S.DivFields testId="divFieldsSecond">
-              <S.Range name="score" type="range" onChange={handleScoreChange} testId="rangeSecond" />
+              <S.Range
+                name="score"
+                type="range"
+                onChange={handleScoreChange}
+                testId="rangeSecond"
+              />
               <S.DataList>
                 <option value="0" />
                 <option value="1" />
@@ -115,7 +123,11 @@ function SecondQuestion() {
                   Voltar
                 </S.LinkStyled>
               </Button>
-              <Button className={"nextButton"} onClick={post}>
+              <Button
+                className={"nextButton"}
+                onClick={score !== undefined ? post : undefined}
+                disabled={score !== undefined ? false : true}
+              >
                 <S.LinkStyled to={"/thirdQuestion"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>
