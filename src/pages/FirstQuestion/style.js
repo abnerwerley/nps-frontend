@@ -36,6 +36,9 @@ export const TopButtons = styled.div`
 
   @media (min-width: 300px) and (max-width: 699px) {
     justify-content: flex-end;
+    .arrowLink {
+      display: none;
+    }
   }
 
   @media (max-width: 299px) {
@@ -43,14 +46,6 @@ export const TopButtons = styled.div`
   }
 `;
 
-export const Arrow = styled.img`
-  width: 30px;
-  height: 30px;
-
-  @media (min-width: 300px) and (max-width: 699px) {
-    display: none;
-  }
-`;
 export const Close = styled.img`
   width: 25px;
   height: 25px;
@@ -148,22 +143,22 @@ export const Range = styled.input`
 `;
 
 export const DataList = styled.datalist`
-height: 5px;
-display: flex;
-justify-content: space-between;
-padding-bottom: 15px;
-
-> option {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 13;
-  line-height: 28px;
-
+  height: 5px;
   display: flex;
-  align-items: center;
-  text-align: center;
-}
+  justify-content: space-between;
+  padding-bottom: 15px;
+
+  > option {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13;
+    line-height: 28px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 export const P = styled.p`

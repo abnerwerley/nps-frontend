@@ -80,7 +80,7 @@ function FirstQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
-            <Link to={"/"}>
+            <Link to={"/"} className="arrowLink">
               <Arrow />
             </Link>
             <Close onClick={handleCloseModal} />

@@ -80,7 +80,7 @@ function ThirdQuestion() {
       >
         <S.ModalContainer>
           <S.TopButtons>
-            <Link to={"/secondQuestion"}>
+            <Link to={"/secondQuestion"} className="arrowLink">
               <Arrow />
             </Link>
             <Close onClick={handleCloseModal} />
