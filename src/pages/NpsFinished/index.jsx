@@ -1,9 +1,10 @@
+import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-import close from "../../assets/close.svg";
+// import close from "../../assets/close.svg";
 import * as S from "./style";
 import { Button } from "../../components/Button/index.jsx";
-import check from "./assets/check.svg";
+// import check from "./assets/check.svg";
 
 function NpsFinished() {
   const [modalIsOpen, setIsOpen] = useState(true);
@@ -29,20 +30,18 @@ function NpsFinished() {
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         style={customStyles}
+        testId="lastModal"
       >
         <S.ModalContainer>
           <S.TopButtons>
-            <S.Close src={close} onClick={handleCloseModal} />
+            {/* <S.Close src={close} onClick={handleCloseModal} /> */}
           </S.TopButtons>
-          <S.ImageDiv>
-            <S.CheckImage src={check} />
-          </S.ImageDiv>
+          <S.ImageDiv>{/* <S.CheckImage src={check} /> */}</S.ImageDiv>
           <S.Content>
             <S.H1>Sua avaliação foi enviada com sucesso!</S.H1>
             <S.Paragraph>
-              Esta avaliação ajuda a<br></br>
-              melhorarmos a sua experiência.<br></br>
-              Muito obrigado pela sua participação.
+              Esta avaliação ajuda a melhorarmos a sua experiência. Muito
+              obrigado pela sua participação.
             </S.Paragraph>
           </S.Content>
           <S.BottomButton>
