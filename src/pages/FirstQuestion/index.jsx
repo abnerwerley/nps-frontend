@@ -107,6 +107,7 @@ function FirstQuestion() {
                 <option value="9" />
                 <option value="10" />
               </S.DataList>
+              {score === undefined && <S.P className="obrigatorio">*Obrigatório</S.P>}
               <TextArea
                 name={"response"}
                 onChange={handleResponseChange}
@@ -118,10 +119,7 @@ function FirstQuestion() {
                 onClick={score !== undefined ? post : undefined}
                 disabled={score !== undefined ? false : true}
               >
-                <S.LinkStyled
-                  to={"/secondQuestion"}
-                  style={{ color: "white" }}
-                >
+                <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>
               </Button>

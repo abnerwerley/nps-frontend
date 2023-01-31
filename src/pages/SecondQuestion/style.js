@@ -129,7 +129,6 @@ export const Paragraph = styled.p`
 
 export const DivFields = styled.div`
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
 `;
@@ -151,6 +150,23 @@ export const Range = styled.input`
 `;
 
 export const DataList = styled.datalist``;
+
+export const P = styled.p`
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 30px;
+
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.02em;
+
+  color: #ff046d;
+  @media (min-width: 300px) and (max-width: 699px) {
+    font-size: 10px;
+  }
+`;
 
 export const BottomButtons = styled.div`
   display: flex;

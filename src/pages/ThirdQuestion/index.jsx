@@ -107,6 +107,9 @@ function ThirdQuestion() {
                 <option value="9" />
                 <option value="10" />
               </S.DataList>
+              {score === undefined && (
+                <S.P className="obrigatorio">*Obrigatório</S.P>
+              )}
               <TextArea
                 name={"response"}
                 onChange={handleResponseChange}
