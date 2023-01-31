@@ -135,7 +135,7 @@ export const DivFields = styled.div`
 
 export const Range = styled.input`
   padding-top: 40px;
-  width: 352px;
+  width:100%
   height: 9px;
 
   background: #e5e5e5;
@@ -143,13 +143,28 @@ export const Range = styled.input`
 
   @media (min-width: 300px) and (max-width: 699px) {
     padding-top: 25px;
-
-    width: 260px;
     height: 28px;
   }
 `;
 
-export const DataList = styled.datalist``;
+export const DataList = styled.datalist`
+height: 5px;
+display: flex;
+justify-content: space-between;
+padding-bottom: 15px;
+
+> option {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13;
+  line-height: 28px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+`;
 
 export const P = styled.p`
   font-family: "Poppins";
