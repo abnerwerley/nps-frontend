@@ -1,7 +1,8 @@
+import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-import close from "../../assets/close.svg";
-import arrow from "../../assets/arrow.svg";
+// import close from "../../assets/close.svg";
+// import arrow from "../../assets/arrow.svg";
 import * as S from "./style";
 import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
@@ -75,13 +76,14 @@ function ThirdQuestion() {
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         style={customStyles}
+        testId="ThirdModal"
       >
         <S.ModalContainer>
           <S.TopButtons>
-            <Link to={"/secondQuestion"}>
+            {/* <Link to={"/secondQuestion"}>
               <S.Arrow src={arrow} />
             </Link>
-            <S.Close src={close} onClick={handleCloseModal} />
+            <S.Close src={close} onClick={handleCloseModal} /> */}
           </S.TopButtons>
 
           <S.Content>
@@ -90,7 +92,7 @@ function ThirdQuestion() {
               <S.Paragraph>{question.enquiry}</S.Paragraph>
             </S.Texts>
 
-            <S.DivFields>
+            <S.DivFields testId="thirdDivFields">
               <S.Range name="score" type="range" onChange={handleScoreChange} />
               <S.DataList>
                 <option value="0" />

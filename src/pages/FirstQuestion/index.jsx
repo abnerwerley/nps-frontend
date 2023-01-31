@@ -1,7 +1,7 @@
+import React from "react";
 import Modal from "react-modal";
 import { useState } from "react";
-import close from "../../assets/close.svg";
-import arrow from "../../assets/arrow.svg";
+// import close from "../../assets/close.svg";
 import * as S from "./style";
 import { TextArea } from "../../components/TextArea/index.jsx";
 import { Button } from "../../components/Button/index.jsx";
@@ -74,21 +74,21 @@ function FirstQuestion() {
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
         style={customStyles}
+        testId="modal"
       >
         <S.ModalContainer>
           <S.TopButtons>
-            <S.Arrow src={arrow} onClick={handleCloseModal} />
-            <S.Close src={close} onClick={handleCloseModal} />
+            {/* <S.Close src={close} onClick={handleCloseModal} /> */}
           </S.TopButtons>
 
           <S.Content>
             <S.Texts>
-              <S.H1>Avaliação de satisfação</S.H1>
-              <S.Paragraph>{question.enquiry}</S.Paragraph>
+              <S.H1 testId="h1">Avaliação de satisfação</S.H1>
+              <S.Paragraph testId="paragraph">{question.enquiry}</S.Paragraph>
             </S.Texts>
 
             <S.DivFields>
-              <S.Range name="score" type="range" onChange={handleScoreChange} />
+              <S.Range name="score" type="range" onChange={handleScoreChange} testId="range" />
               <S.DataList>
                 <option value="0" />
                 <option value="1" />
