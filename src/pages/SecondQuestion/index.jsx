@@ -94,23 +94,26 @@ function SecondQuestion() {
 
             <S.DivFields testId="divFieldsSecond">
               <S.Range
+                min="0"
+                max="10"
                 name="score"
                 type="range"
                 onChange={handleScoreChange}
-                testId="rangeSecond"
+                testId="range"
+                list="datalist"
               />
-              <S.DataList>
-                <option value="0" />
-                <option value="1" />
-                <option value="2" />
-                <option value="3" />
-                <option value="4" />
-                <option value="5" />
-                <option value="6" />
-                <option value="7" />
-                <option value="8" />
-                <option value="9" />
-                <option value="10" />
+              <S.DataList id="datalist">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </S.DataList>
               <TextArea
                 name={"response"}
@@ -123,11 +126,7 @@ function SecondQuestion() {
                   Voltar
                 </S.LinkStyled>
               </Button>
-              <Button
-                className={"nextButton"}
-                onClick={score !== undefined ? post : undefined}
-                disabled={score !== undefined ? false : true}
-              >
+              <Button className={"nextButton"} onClick={post}>
                 <S.LinkStyled to={"/thirdQuestion"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>

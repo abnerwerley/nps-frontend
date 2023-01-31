@@ -33,7 +33,7 @@ function FirstQuestion() {
 
   const [question, setQuestion] = useState("");
   const [questionId, setQuestionId] = useState("");
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState();
   const [score, setScore] = useState();
 
   const handleResponseChange = (event) => {
@@ -89,39 +89,47 @@ function FirstQuestion() {
 
             <S.DivFields>
               <S.Range
+                min="0"
+                max="10"
                 name="score"
                 type="range"
                 onChange={handleScoreChange}
                 testId="range"
+                list="datalist"
               />
-              <S.DataList>
-                <option value="0" />
-                <option value="1" />
-                <option value="2" />
-                <option value="3" />
-                <option value="4" />
-                <option value="5" />
-                <option value="6" />
-                <option value="7" />
-                <option value="8" />
-                <option value="9" />
-                <option value="10" />
+              <S.DataList id="datalist">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
               </S.DataList>
+
               <TextArea
                 name={"response"}
                 onChange={handleResponseChange}
               ></TextArea>
+              {(response === undefined || response === "") && (
+                <S.P className="obrigatorio">*Obrigatório</S.P>
+              )}
             </S.DivFields>
             <S.BottomButtons>
               <Button
                 className={"nextButton"}
-                onClick={score !== undefined ? post : undefined}
-                disabled={score !== undefined ? false : true}
+                onClick={
+                  response !== undefined && response !== "" ? post : undefined
+                }
+                disabled={
+                  response !== undefined && response !== "" ? false : true
+                }
               >
-                <S.LinkStyled
-                  to={"/secondQuestion"}
-                  style={{ color: "white" }}
-                >
+                <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
                   Próxima
                 </S.LinkStyled>
               </Button>
