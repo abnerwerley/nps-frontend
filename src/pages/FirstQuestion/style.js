@@ -198,4 +198,5 @@ export const BottomButtons = styled.div`
 
 export const LinkStyled = styled(Link)`
   text-decoration: none;
+  cursor: ${(props) => props.disabled && "not-allowed"};
 `;

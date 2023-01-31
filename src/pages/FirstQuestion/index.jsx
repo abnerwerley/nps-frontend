@@ -47,6 +47,8 @@ function FirstQuestion() {
   };
 
   useEffect(() => {
+    handleResponseChange;
+    handleScoreChange;
     Axios.get("http://localhost:8080/question/1").then((response) => {
       setQuestionId(response.data.questionId);
       setQuestion(response.data);
@@ -68,6 +70,8 @@ function FirstQuestion() {
         console.log(error.message);
       });
   };
+
+  const notDisabled = response !== undefined && response !== "";
 
   return (
     <S.Container key={questionId}>
@@ -127,14 +131,14 @@ function FirstQuestion() {
             <S.BottomButtons>
               <Button
                 className={"nextButton"}
-                onClick={
-                  response !== undefined && response !== "" ? post : undefined
-                }
-                disabled={
-                  response !== undefined && response !== "" ? false : true
-                }
+                onClick={notDisabled ? post : undefined}
+                disabled={notDisabled ? false : true}
               >
-                <S.LinkStyled to={"/secondQuestion"} style={{ color: "white" }}>
+                <S.LinkStyled
+                  to={notDisabled ? "/secondQuestion" : "#"}
+                  style={{ color: "white" }}
+                  disabled={!notDisabled}
+                >
                   Próxima
                 </S.LinkStyled>
               </Button>
