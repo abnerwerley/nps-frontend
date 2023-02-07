@@ -4,7 +4,7 @@ import { useState } from "react";
 import Close from "../../assets/close.jsx";
 import * as S from "./style";
 import { Button } from "../../components/Button/index.jsx";
-import Check from "./assets/check.jsx";
+import Check from "../../assets/check.jsx";
 
 function NpsFinished() {
   const [modalIsOpen, setIsOpen] = useState(true);
@@ -37,7 +37,7 @@ function NpsFinished() {
             <Close onClick={handleCloseModal} />
           </S.TopButtons>
           <S.ImageDiv>
-            <Check />
+            {/* <Check /> */}
           </S.ImageDiv>
           <S.Content>
             <S.H1>Sua avaliação foi enviada com sucesso!</S.H1>
