@@ -103,7 +103,7 @@ function DefaultPage() {
 
   return (
     <S.Container key={questionId}>
-      {step !== 4 && (
+      {(step < 4 && (
         <div>
           <Button onClick={handleOpenModal}>Responder Nps</Button>
           <Modal
@@ -113,105 +113,132 @@ function DefaultPage() {
             testId="modal"
           >
             <S.ModalContainer>
-              {(step === 1 && (
-                <div className="arrowLink">
-                  <S.TopButton>
-                    <Close onClick={handleCloseModal} />
-                  </S.TopButton>
-                </div>
-              )) || (
-                <div>
-                  <S.TopButtons>
-                    <div className="arrowLink">
-                      <Arrow onClick={handleStepBack} />
-                    </div>
-                    <Close onClick={handleCloseModal} />
-                  </S.TopButtons>
-                </div>
-              )}
-              <S.Content>
-                <S.Texts>
-                  <S.H1 testId="h1">Avaliação de satisfação</S.H1>
-                  <p>Passo {step}</p>
-                  <S.Paragraph testId="paragraph">
-                    {question.enquiry}
-                  </S.Paragraph>
-                </S.Texts>
-
-                <S.DivFields>
-                  <S.Range
-                    min="0"
-                    max="10"
-                    name="score"
-                    type="range"
-                    onChange={handleScoreChange}
-                    testId="range"
-                    list="datalist"
-                  />
-                  <S.DataList id="datalist">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </S.DataList>
-
-                  <TextArea
-                    name={"response"}
-                    onChange={handleResponseChange}
-                  ></TextArea>
-                  {((step === 1 && response === undefined) ||
-                    response === "") && (
-                    <S.P className="obrigatorio">*Obrigatório</S.P>
-                  )}
-                </S.DivFields>
+              <div>
                 {(step === 1 && (
-                  <S.BottomFirstButton>
-                    <Button
-                      className={"nextButton"}
-                      onClick={
-                        notDisabled
-                          ? () => {
-                              handleStepChange();
-                              post();
-                            }
-                          : undefined
-                      }
-                      disabled={notDisabled ? false : true}
-                    >
-                      Próxima
-                    </Button>
-                  </S.BottomFirstButton>
+                  <div className="arrowLink">
+                    <S.TopButton>
+                      <Close onClick={handleCloseModal} />
+                    </S.TopButton>
+                  </div>
                 )) || (
-                  <S.BottomButtons>
-                    <Button className={"backButton"} onClick={handleStepBack}>
-                      Voltar
-                    </Button>
-                    <Button
-                      className={"nextButton"}
-                      onClick={
-                        notDisabled
-                          ? () => {
-                              handleStepChange();
-                              post();
-                            }
-                          : undefined
-                      }
-                    >
-                      Próxima
-                    </Button>
-                  </S.BottomButtons>
+                  <div>
+                    <S.TopButtons>
+                      <div className="arrowLink">
+                        <Arrow onClick={handleStepBack} />
+                      </div>
+                      <Close onClick={handleCloseModal} />
+                    </S.TopButtons>
+                  </div>
                 )}
-              </S.Content>
+                <S.Content>
+                  <S.Texts>
+                    <S.H1 testId="h1">Avaliação de satisfação</S.H1>
+                    <S.Paragraph testId="paragraph">
+                      {question.enquiry}
+                    </S.Paragraph>
+                  </S.Texts>
+
+                  <S.DivFields>
+                    <S.Range
+                      min="0"
+                      max="10"
+                      name="score"
+                      type="range"
+                      onChange={handleScoreChange}
+                      testId="range"
+                      list="datalist"
+                    />
+                    <S.DataList id="datalist">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </S.DataList>
+
+                    <TextArea
+                      name={"response"}
+                      onChange={handleResponseChange}
+                    ></TextArea>
+                    {((step === 1 && response === undefined) ||
+                      response === "") && (
+                      <S.P className="obrigatorio">*Obrigatório</S.P>
+                    )}
+                  </S.DivFields>
+                  {(step === 1 && (
+                    <S.BottomFirstButton>
+                      <Button
+                        className={"nextButton"}
+                        onClick={
+                          notDisabled
+                            ? () => {
+                                handleStepChange();
+                                post();
+                              }
+                            : undefined
+                        }
+                        disabled={notDisabled ? false : true}
+                      >
+                        Próxima
+                      </Button>
+                    </S.BottomFirstButton>
+                  )) || (
+                    <S.BottomButtons>
+                      <Button className={"backButton"} onClick={handleStepBack}>
+                        Voltar
+                      </Button>
+                      <Button
+                        className={"nextButton"}
+                        onClick={
+                          notDisabled
+                            ? () => {
+                                handleStepChange();
+                                post();
+                              }
+                            : undefined
+                        }
+                      >
+                        Próxima
+                      </Button>
+                    </S.BottomButtons>
+                  )}
+                </S.Content>
+              </div>
             </S.ModalContainer>
           </Modal>
         </div>
+      )) || (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={handleCloseModal}
+          style={customStyles}
+          testId="lastModal"
+        >
+          <S.ModalContainer>
+            <S.TopButton>
+              <Close onClick={handleCloseModal} />
+            </S.TopButton>
+            <S.ImageDiv>{<Check />}</S.ImageDiv>
+            <S.Content>
+              <S.FinalH1>Sua avaliação foi enviada com sucesso!</S.FinalH1>
+              <S.Paragraph>
+                Esta avaliação ajuda a melhorarmos a sua experiência. Muito
+                obrigado pela sua participação.
+              </S.Paragraph>
+            </S.Content>
+            <S.FinalButton>
+              <Button className={"concludeButton"} onClick={handleCloseModal}>
+                Concluir
+              </Button>
+            </S.FinalButton>
+          </S.ModalContainer>
+        </Modal>
       )}
     </S.Container>
   );

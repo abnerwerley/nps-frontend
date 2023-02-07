@@ -119,6 +119,38 @@ export const H1 = styled.h1`
   }
 `;
 
+export const FinalH1 = styled.h1`
+  marigin: 0;
+  padding: 39px;
+
+  width: 320.62px;
+  height: 54.33px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 30px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #333333;
+
+  @media (min-width: 299px) and (max-width: 699px) {
+    padding: 29px;
+    margin: 0;
+
+    width: 228px;
+    height: 41px;
+
+    font-size: 18px;
+    line-height: 26px;
+  }
+`;
+
 export const Paragraph = styled.p`
   padding: 20px;
   margin: 0;
@@ -224,7 +256,7 @@ export const BottomFirstButton = styled.div`
   }
 `;
 
-export const ConcludeButton = styled.div`
+export const FinalButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,4 +301,3 @@ export const BottomButtons = styled.div`
     padding-top: 44px;
   }
 `;
-
