@@ -17,14 +17,16 @@ function DefaultPage() {
   const [questionId, setQuestionId] = useState("");
   const [response, setResponse] = useState();
   const [score, setScore] = useState(5);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(localStorage.getItem("currentStep") ?? 1);
 
   function handleStepChange() {
     setStep(step + 1);
+    localStorage.setItem("currentStep", step + 1);
   }
 
   function handleStepBack() {
     setStep(step - 1);
+    localStorage.setItem("currentStep", step - 1);
   }
 
   function handleOpenModal() {
@@ -132,6 +134,8 @@ function DefaultPage() {
                 )}
                 <S.Content>
                   <S.Texts>
+                    <p>Passo {step}</p>
+                    <p>Passo atual {localStorage.getItem("currentStep")}</p>
                     <S.H1 testId="h1">Avaliação de satisfação</S.H1>
                     <S.Paragraph testId="paragraph">
                       {question.enquiry}
